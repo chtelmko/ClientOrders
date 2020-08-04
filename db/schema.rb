@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_154451) do
+ActiveRecord::Schema.define(version: 2020_08_04_163419) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email"
@@ -18,4 +18,17 @@ ActiveRecord::Schema.define(version: 2020_08_04_154451) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "street_address"
+    t.string "city"
+    t.string "state"
+    t.integer "postal_code"
+    t.date "ship_date"
+    t.bigint "customer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
+  add_foreign_key "orders", "customers"
 end
