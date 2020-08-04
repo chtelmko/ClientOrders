@@ -1,0 +1,20 @@
+<h2> Order No: <%= @order.id %></h2>
+
+
+   <h4>
+    <%= @order.street_address %> |
+    <%= @order.city %> |
+    <%= @order.postal_code %> |
+    <%= @order.ship_date %>
+   </h4>
+
+
+<h3>Add an Order Item:</h3>
+
+<h5> Here will be the form</h5>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
+
+
+ 

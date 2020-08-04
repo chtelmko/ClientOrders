@@ -3,4 +3,41 @@
   <strong>Email:</strong>
   <%= @customer.email %>
 </p>
+
+<h2>Orders</h2>
+<% @customer.orders.each do |order| %>
+   <p>
+    <%= order.street_address %> |
+    <%= order.city %> |
+    <%= order.postal_code %> |
+    <%= order.ship_date %>
+   </p>
+<% end %>
+
+
+<h3>Add an Order:</h3>
+<%= form_with(model: [ @customer, @customer.orders.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :street_address %><br>
+    <%= form.text_field :street_address %>
+  <br>
+    <%= form.label :city %><br>
+    <%= form.text_field :city %>
+  <br>
+    <%= form.label :postal_code %><br>
+    <%= form.text_field :postal_code %>
+  <br>
+    <%= form.label :ship_date %><br>
+    <%= form.date_field :ship_date %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
+
+
  
