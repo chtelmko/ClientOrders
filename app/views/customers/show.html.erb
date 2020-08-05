@@ -4,7 +4,7 @@
   <%= @customer.email %>
 </p>
 
-<h2>Orders</h2>
+<h3>Customer Orders</h3>
 <% @customer.orders.each do |order| %>
    <p>
     <%= order.street_address %> |
@@ -13,10 +13,12 @@
     <%= order.ship_date %>
    </p>
 <% end %>
-
+<hr>
 
 <h3>Add an Order:</h3>
 <%= form_with(model: [ @customer, @customer.orders.build ], local: true) do |form| %>
+  
+
   <p>
     <%= form.label :street_address %><br>
     <%= form.text_field :street_address %>
