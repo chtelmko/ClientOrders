@@ -16,14 +16,12 @@ Project is created with:
 * sqlite3 3.22.0 2018-01-22
 * yarn -v1.21.1
 * Database: MySQL
-* Server: Apache
+
 
 	
 ## Setup
-To run this project, install it locally using npm:
 
-* Database creation:
- When creating a new rails aplication, include "–database=mysql" after the name(rails new ClientOrders –database=mysql).
+
 
 * Configuration:
  To run mysql queries: Type "mysql -u root" in mysql terminal

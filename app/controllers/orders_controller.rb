@@ -21,4 +21,4 @@ class OrdersController < ApplicationController
         end
 end
 
-#.permit(:item_name, :item_description, :unit_price_in_cents, :quantity)
+

@@ -38,3 +38,4 @@ class CustomersController < ApplicationController
         params.require(:customer).permit(:email)
       end
     end
+
