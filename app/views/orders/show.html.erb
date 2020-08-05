@@ -1,6 +1,4 @@
 <h2> Order No: <%= @order.id %></h2>
-
-
 <h4>
     <%= @order.street_address %> |
     <%= @order.city %> |
@@ -8,11 +6,56 @@
     <%= @order.ship_date %>
 </h4>
 
+<h3>Items in Order</h3>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price, Cents</th>
+    <th>Quantity</th>
+    <th>Item Total, Cents</th>
+  </tr>
+ 
+  <% @order.order_items.each do |item| %>
+    <tr>
+      <td><%= item.item_name %></td>
+      <td><%= item.item_description %></td>
+      <td><%= item.unit_price_in_cents %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.quantity * item.unit_price_in_cents %></td>
+    </tr>
+  <% end %>
+</table>
+
+
 
 <h3>Add an Order Item:</h3>
 
-<h5> Here will be the form with "collection_select" </h5>
+<%= form_with(model: [ @order, @order.order_items.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :item_name %><br>
+    <%= form.text_field :item_name %>
+  </p>
+  <p>
+    <%= form.label :item_description %><br>
+    <%= form.text_area :item_description %>
+  </p>
+  <p>
+    <%= form.label :unit_price_in_cents %><br>
+    <%= form.number_field :unit_price_in_cents %>
+  </p>
+  
+  <p>
+    <%= form.label :quantity %><br>
+    <%= form.number_field :quantity %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
 
+<hr>
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
 
