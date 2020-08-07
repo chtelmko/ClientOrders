@@ -7,13 +7,18 @@
     <th>Customer Email</th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
  
   <% @orders.each do |order| %>
     <tr>
       <td><%= order.id %></td>
       <td><%= order.ship_date %></td>
-      <td><%= order.customer.email %></td>
+      <td>
+          <%= order.customer.email %> 
+      </td>
+      <td><%= link_to 'Go to customer', customer_path(order.customer) %></td>
+      
       <td><%= link_to 'Show', [order] %></td>
       <td><%= link_to 'Edit', edit_order_path(order) %></td>
     </tr>

@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
     def index
-        @orders = Order.all
+        @orders = Order.all.sort_by &:ship_date
+
+        #sorted = @records.sort_by &:created_at
     end
     
     def show
@@ -21,4 +23,4 @@ class OrdersController < ApplicationController
         end
 end
 
-#.permit(:item_name, :item_description, :unit_price_in_cents, :quantity)
+
