@@ -9,6 +9,7 @@
    <p>
     <%= order.street_address %> |
     <%= order.city %> |
+    <%= order.state %> |
     <%= order.postal_code %> |
     <%= order.ship_date %>
    </p>
@@ -26,8 +27,12 @@
     <%= form.label :city %><br>
     <%= form.text_field :city %>
   <br>
+    <%= form.label :state %><br>
+    <%= form.text_field :state %>
+  <br>
+  <br>
     <%= form.label :postal_code %><br>
-    <%= form.text_field :postal_code %>
+    <%= form.number_field :postal_code %>
   <br>
     <%= form.label :ship_date %><br>
     <%= form.date_field :ship_date %>
@@ -37,6 +42,7 @@
     <%= form.submit %>
   </p>
 <% end %>
+ 
  
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
