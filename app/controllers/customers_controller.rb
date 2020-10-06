@@ -4,13 +4,16 @@ class CustomersController < ApplicationController
     end
     
     def new
+        @customer = Customer.new
     end
    
     def find
         #https://stackoverflow.com/questions/15191240/rails-implementation-of-search-with-autocomplete
         #@customer = Customer.find(params[:email])
-        
-       @customer = Customer.find(:all, :conditions => ['email LIKE ?', "%#{params[:email]}%"])
+        #<input id="user_name" name="user[name]" type="search" />
+        render plain: params[:customer_email].inspect 
+        #param = params[:customer_email]
+        #@customer = Customer.find(:all, :conditions => ['email LIKE ?', "%#{email}%"])
     end 
     
     def create

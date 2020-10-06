@@ -28,8 +28,8 @@ To run this project, install it locally using npm:
 * Configuration:
  To run mysql queries: Type "mysql -u root" in mysql terminal
 
-
-
+* Authentication by 
+ http://railscasts.com/episodes/250-authentication-from-scratch-revised
 
 
 

@@ -1,0 +1,30 @@
+<h3>Edit an Order:</h3>
+
+<%= form_with(model:  @order, local: true) do |form| %>
+  
+
+  <p>
+    <%= form.label :street_address %><br>
+    <%= form.text_field :street_address %>
+  <br>
+    <%= form.label :city %><br>
+    <%= form.text_field :city %>
+  <br>
+    <%= form.label :state %><br>
+    <%= form.text_field :state %>
+  <br>
+  <br>
+    <%= form.label :postal_code %><br>
+    <%= form.number_field :postal_code %>
+  <br>
+    <%= form.label :ship_date %><br>
+    <%= form.date_field :ship_date %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+ 
+ 
+<%= link_to 'Back', orders_path %>

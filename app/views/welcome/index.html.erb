@@ -1,17 +1,13 @@
 <h1>Welcome!</h1>
 <hr>
-<%= form_with scope: :customer, url: find_path, local: true do |form| %>
-
+<%= form_with(url: "/find", method: "post") do %>
   <p>
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
-  </p>
-  <p>
-    <%= form.submit %>
+    <%= label_tag( :email, 'Search Customer by email') %>
+    <%= search_field(:customer, :email) %>
+    <%= submit_tag("Search") %>
   </p>
 <% end %>
 
-<%= link_to 'Back', customers_path %>
 <hr>
 | <%= link_to 'Orders', controller: 'orders' %> | <%= link_to 'Customers', controller: 'customers' %> |
 <hr>

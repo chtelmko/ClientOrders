@@ -1,4 +1,8 @@
-<h1>All Orders</h1>
+ <% if current_user %>
+    <h1>All Orders of <%= current_user.email %></h1>
+<% else %>
+    <h1>All Orders</h1>          
+<% end %>
  
 <table>
   <tr>

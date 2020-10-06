@@ -6,28 +6,9 @@
     <%= @order.ship_date %>
 </h4>
 
-<h3>Items in Order</h3>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price, Cents</th>
-    <th>Quantity</th>
-    <th>Item Total, Cents</th>
-  </tr>
- 
-  <% @order.order_items.each do |item| %>
-    <tr>
-      <td><%= item.item_name %></td>
-      <td><%= item.item_description %></td>
-      <td><%= item.unit_price_in_cents %></td>
-      <td><%= item.quantity %></td>
-      <td><%= item.quantity * item.unit_price_in_cents %></td>
-    </tr>
-  <% end %>
-</table>
+<h3>Items:</h3>
 
-
+<%= render partial: "order_items", locals: { items: @order.order_items } %>
 
 <h3>Add an Order Item:</h3>
 

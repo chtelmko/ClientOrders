@@ -1,14 +1,5 @@
-<%= form_with scope: :customer, url: customers_path, local: true do |form| %>
+<h2> New Customer</h2>
 
-  <p>
-    <%= form.label :email %><br>
-    <%= form.email_field :email %>
-  </p>
- 
-  
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', customers_path %>
