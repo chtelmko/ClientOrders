@@ -22,7 +22,7 @@
       <td><%= item.item_description %></td>
       <td><%= item.unit_price_in_cents %></td>
       <td><%= item.quantity %></td>
-      <td><%= item.quantity * item.unit_price_in_cents %></td>
+      <td><%= item.line_price_in_cents %></td>
     </tr>
   <% end %>
 </table>

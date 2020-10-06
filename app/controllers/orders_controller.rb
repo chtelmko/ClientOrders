@@ -8,6 +8,8 @@ class OrdersController < ApplicationController
     end
     
      def create
+        #render plain: params[:order].inspect 
+         
         @customer = Customer.find(params[:customer_id])
         @order = @customer.orders.create(order_params)
         redirect_to customer_path(@customer)
@@ -17,8 +19,6 @@ class OrdersController < ApplicationController
         def order_params
           params
             .require(:order)
-            .permit(:street_address, :city, :postal_code, :ship_date)
+            .permit(:street_address, :city, :state, :postal_code, :ship_date)
         end
 end
-
-
